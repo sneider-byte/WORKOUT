@@ -1,0 +1,578 @@
+/* Variables de Color: Negro, Verde y Blanco */
+:root {
+    --bg-primary: #0b0c10;
+    --bg-secondary: #0f1115;
+    --bg-card: #16191f;
+    --color-green: #00ff87;
+    --color-green-dark: #10b981;
+    --color-white: #ffffff;
+    --color-gray: #9ca3af;
+    --color-border: #22262e;
+    --transition: all 0.3s ease;
+}
+
+/* Reset y Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--color-white);
+    line-height: 1.6;
+}
+
+/* Encabezado fijo */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(11, 12, 16, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-white);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--color-green);
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover {
+    color: var(--color-green);
+}
+
+/* Botón menú hamburguesa móvil */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: var(--color-white);
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.9)), 
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    color: var(--color-green);
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: var(--color-gray);
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--color-green);
+    color: var(--bg-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-green-dark);
+    color: var(--color-white);
+    box-shadow: 0 0 15px rgba(0, 255, 135, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-green);
+    color: var(--color-green);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-green);
+    border: 2px solid var(--color-green);
+    width: 100%;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-green);
+    color: var(--bg-primary);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Secciones Generales */
+.section {
+    padding: 6rem 2rem;
+}
+
+.bg-darker {
+    background-color: var(--bg-secondary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-gray);
+    margin-bottom: 3rem;
+}
+
+/* Grid Layouts (CSS Grid) */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Tarjetas Informativas y de Edad */
+.card-info, .feature-card, .age-card, .price-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.card-info:hover, .feature-card:hover, .age-card:hover, .price-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-green);
+}
+
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.age-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.age-card.featured {
+    border-color: var(--color-green);
+    box-shadow: 0 0 20px rgba(0, 255, 135, 0.15);
+}
+
+.age-badge {
+    display: inline-block;
+    background-color: var(--color-border);
+    color: var(--color-white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.age-badge.highlight {
+    background-color: var(--color-green);
+    color: var(--bg-primary);
+}
+
+.benefits-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.benefits-list li {
+    color: var(--color-gray);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Tarjetas de Precios */
+.price-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.price-card.popular {
+    border: 2px solid var(--color-green);
+    position: relative;
+}
+
+.popular-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-green);
+    color: var(--bg-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 1rem;
+    border-radius: 10px;
+}
+
+.price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-green);
+    margin: 1.5rem 0;
+}
+
+.price span, .price sub {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gray);
+}
+
+.price-features {
+    list-style: none;
+    text-align: left;
+    margin: 1.5rem 0;
+}
+
+.price-features li {
+    color: var(--color-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+/* Caja de Evidencias */
+.evidence-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.mockup-frame {
+    margin-top: 1rem;
+    border: 2px dashed var(--color-green);
+    border-radius: 8px;
+    padding: 2.5rem 1rem;
+    background-color: rgba(0, 255, 135, 0.03);
+    color: var(--color-gray);
+    font-size: 0.9rem;
+}
+
+/* Formulario */
+.form-container {
+    max-width: 600px;
+}
+
+.apex-form {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    padding: 2.5rem;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-white);
+    font-size: 1rem;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--color-green);
+}
+
+/* Pie de página */
+.footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--color-border);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-sub {
+    color: var(--color-gray);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* Modal Interactivo */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-green);
+    padding: 2.5rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-box h3 {
+    color: var(--color-green);
+    margin-bottom: 1rem;
+}
+
+.modal-box p {
+    color: var(--color-gray);
+    margin-bottom: 1.5rem;
+}
+
+/* --- DISEÑO RESPONSIVO (Media Queries) --- */
+
+/* Tablets (Ancho menor a 1024px) */
+@media (max-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Teléfonos móviles (Ancho menor a 767px) */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--color-border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .nav-menu.active {
+        max-height: 300px;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 4rem 1rem;
+    }
+}
+/* Estilos para la sección de Alimentación */
+.nutrition-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nutrition-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-green);
+}
+
+.nutrition-card.featured {
+    border: 2px solid var(--color-green);
+    box-shadow: 0 0 20px rgba(0, 255, 135, 0.15);
+}
+
+.nutrition-tag {
+    display: inline-block;
+    background-color: var(--color-border);
+    color: var(--color-white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.nutrition-tag.highlight {
+    background-color: var(--color-green);
+    color: var(--bg-primary);
+}
+
+.nutrition-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.nutrition-list li {
+    color: var(--color-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+.nutrition-list li strong {
+    color: var(--color-white);
+}
+
+/* Caja de Tips Nutricionales Interactiva */
+.nutrition-tip-box {
+    margin-top: 3rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-green);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nutrition-tip-box h3 {
+    color: var(--color-green);
+    margin-bottom: 1rem;
+}
+
+.nutrition-tip-box p {
+    color: var(--color-gray);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
